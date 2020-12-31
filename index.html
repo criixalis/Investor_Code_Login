@@ -44,9 +44,9 @@ function reg() {
 var cgsACC = document.getElementById("cgsACC").value;
 
      liff.getProfile().then(function(profile) {
-            var uId = profile.uId;
-            var disName = profile.disName;
-            var picUrl = profile.picUrl;
+            var uId = profile.userId;
+            var disName = profile.displayName;
+            var picUrl = profile.pictureUrl;
         var xos = liff.getOS();
   x.innerHTML = "Login Process";
 var xmlhttp = new XMLHttpRequest();
