@@ -22,7 +22,7 @@
 </br></br>
 <button type="button" class="btn btn-success" onclick="reg()">ลงทะเบียน</button>
 
-<p id="1ovjxnmfPkL1qyE3aLX26m9Pdu3VxzNpi5cru3cQiTuI"></p>
+<p id="demo"></p>
 </center>
 
 <script>
@@ -38,7 +38,7 @@ function initializeLiff(myLiffId) {
         });
 }
 
-var x = document.getElementById("1ovjxnmfPkL1qyE3aLX26m9Pdu3VxzNpi5cru3cQiTuI");
+var x = document.getElementById("demo");
 
 
 function reg() {
@@ -54,7 +54,7 @@ var tel = document.getElementById("tel").value;
         var xos = liff.getOS();
   x.innerHTML = " กำลังลงทะเบียน... ";
 var xmlhttp = new XMLHttpRequest();
-        var theUrl = "https://docs.google.com/spreadsheets/d/1ovjxnmfPkL1qyE3aLX26m9Pdu3VxzNpi5cru3cQiTuI/edit?fn="+fn+"&ln="+ln+"&nn="+nn+"&tel="+tel+"&uid="+uid+"&dis="+dis+"&pic="+pic;
+        var theUrl = "https://script.google.com/macros/s/AKfycbyUT48nWN3wipCZfc28x1KDa9KYImeSXqSlv3frxZbE-gQCRkfT/exec?fn="+fn+"&ln="+ln+"&nn="+nn+"&tel="+tel+"&uid="+uid+"&dis="+dis+"&pic="+pic;
         xmlhttp.open('GET', theUrl);
         xmlhttp.send();
             xmlhttp.onreadystatechange = function() {
