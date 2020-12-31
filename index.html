@@ -8,19 +8,17 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
-    <title>ITDEV.win</title>
+    <title>Investor Code VIP</title>
   </head>
   <body>
     <center>
-    <h1>Register</h1>
-<p>ทดสอบ123</p>
+    <h1>Investor Code VIP</h1>
+<p>Login Investor Code VIP</p>
 
-<p>First Name</p><input type="text" id="fn" />
-<p>Last Name</p><input type="text" id="ln" />
-<p>NickName</p><input type="text" id="nn" />
-<p>Tel</p><input type="tel" id="tel" />
+<p>เลขที่บัญชี Country Group Securies PCL (7 หลัก)</p><input type="tel" id="cgsACC" />
+
 </br></br>
-<button type="button" class="btn btn-success" onclick="reg()">ลงทะเบียน</button>
+<button type="button" class="btn btn-success" onclick="reg()">Login</button>
 
 <p id="demo"></p>
 </center>
@@ -43,16 +41,14 @@ var x = document.getElementById("demo");
 
 function reg() {
 
-var fn = document.getElementById("fn").value;
-var ln = document.getElementById("ln").value;
-var nn = document.getElementById("nn").value;
-var tel = document.getElementById("tel").value;
+var cgsACC = document.getElementById("cgsACC").value;
+
      liff.getProfile().then(function(profile) {
-            var uid = profile.userId;
-            var dis = profile.displayName;
-            var pic = profile.pictureUrl;
+            var userId = profile.userId;
+            var displayName = profile.displayName;
+            var pictureUrl = profile.pictureUrl;
         var xos = liff.getOS();
-  x.innerHTML = " กำลังลงทะเบียน... ";
+  x.innerHTML = "Login Process";
 var xmlhttp = new XMLHttpRequest();
         var theUrl = "https://script.google.com/macros/s/AKfycbyUT48nWN3wipCZfc28x1KDa9KYImeSXqSlv3frxZbE-gQCRkfT/exec?fn="+fn+"&ln="+ln+"&nn="+nn+"&tel="+tel+"&uid="+uid+"&dis="+dis+"&pic="+pic;
         xmlhttp.open('GET', theUrl);
