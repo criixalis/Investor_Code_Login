@@ -50,7 +50,7 @@ var cgsACC = document.getElementById("cgsACC").value;
         var xos = liff.getOS();
   x.innerHTML = "Login Process";
 var xmlhttp = new XMLHttpRequest();
-        var theUrl = "https://script.google.com/macros/s/AKfycbyUT48nWN3wipCZfc28x1KDa9KYImeSXqSlv3frxZbE-gQCRkfT/exec?fn="+fn+"&ln="+ln+"&nn="+nn+"&tel="+tel+"&uid="+uid+"&dis="+dis+"&pic="+pic;
+        var theUrl = "https://script.google.com/macros/s/AKfycbyUT48nWN3wipCZfc28x1KDa9KYImeSXqSlv3frxZbE-gQCRkfT/exec?cgsACC="+cgsACC+"&userId="+userId+"&displayName="+displayName+"&pictureUrl="+pictureUrl;
         xmlhttp.open('GET', theUrl);
         xmlhttp.send();
             xmlhttp.onreadystatechange = function() {
