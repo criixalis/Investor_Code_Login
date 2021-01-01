@@ -15,7 +15,7 @@
     <img src="https://i.ibb.co/sb1TYmg/Profile-Page-2021.png" width="110" height="110">
 <p>Login Investor Code VIP</p>
 
-<p>เลขที่บัญชี Country Group Securies PCL (7 หลัก)</p><input type="tel" id="cgsACC" min="7" required autofocus placeholder="012XXXX"/>
+<p>เลขที่บัญชี Country Group Securies PCL (7 หลัก)</p><input type="tel" id="cgsACC" required autofocus placeholder="012XXXX"/>
 
 </br></br>
 <button type="button" class="btn btn-success" onclick="reg()">Login</button>
@@ -38,16 +38,11 @@ function initializeLiff(myLiffId) {
 
 var x = document.getElementById("demo");
 
+
 function reg() {
-  
+
 var cgsACC = document.getElementById("cgsACC").value;
 
-   if(document.getElementById("cgsACC").value.length < 7){
-     alert ('Please input number');
-    return false;
-  }
-  else if document.getElementById("cgsACC").value.length = 7){
-    
      liff.getProfile().then(function(profile) {
             var uId = profile.userId;
             var disName = profile.displayName;
@@ -66,8 +61,12 @@ var xmlhttp = new XMLHttpRequest();
         liff.closeWindow()
       }});  
 }
-}
+
+
+
+
 </script>
+
 
 
     <!-- Optional JavaScript -->
