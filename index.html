@@ -39,7 +39,7 @@ function initializeLiff(myLiffId) {
 var x = document.getElementById("demo");
 
 function checkreg() {
-  if(document.getElementById("cgsACC").value < 7){
+  if(document.getElementById("cgsACC").value.length < 7){
      alert ('Please input number');
     return false;
   }
