@@ -38,17 +38,16 @@ function initializeLiff(myLiffId) {
 
 var x = document.getElementById("demo");
 
-function checkreg() {
-  if(document.getElementById("cgsACC").value.length < 7){
+function reg() {
+  
+var cgsACC = document.getElementById("cgsACC").value;
+
+   if(document.getElementById("cgsACC").value.length < 7){
      alert ('Please input number');
     return false;
   }
-}
- 
-function reg() {
-
-var cgsACC = document.getElementById("cgsACC").value;
-
+  else if document.getElementById("cgsACC").value.length = 7){
+    
      liff.getProfile().then(function(profile) {
             var uId = profile.userId;
             var disName = profile.displayName;
@@ -67,7 +66,7 @@ var xmlhttp = new XMLHttpRequest();
         liff.closeWindow()
       }});  
 }
-
+}
 </script>
 
 
