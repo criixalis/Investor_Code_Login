@@ -20,7 +20,7 @@
     <p>เลขที่บัญชี Country Group Securities PCL (7 หลัก)</p>
     <input type="tel" id="cgsACC" required autofocus placeholder="Account No. 7 Digit"/>
     <br><br>
-    <button type="button" class="btn btn-outline-primary" onclick="login()">Login</button>
+    <button type="button" class="btn btn-outline-primary" onclick='login()'>Login</button>
     <button type="button" class="btn btn-outline-success" onclick='location.replace("https://invttc.github.io/Registor/")'>Register</button>
     <br><br>
     <img src="https://i.ibb.co/Svtb4j9/Cover-Page-2021.png" width="400" height="225">
@@ -45,11 +45,6 @@
 
     function login() {
       var cgsACC = document.getElementById("cgsACC").value;
-
-      const liffId = "1655379755-VzlbGZWN";
-    /// Config Your LIFF ID Here
-    liff.ready
-      .then(() => {
       
       liff.getProfile()
         .then(function(profile) {
@@ -77,7 +72,7 @@
           console.error("Error getting profile:", error);
           alert("Login failed. Please try again.");
         });
-    }}
+    }
   </script>
 </body>
 </html>
