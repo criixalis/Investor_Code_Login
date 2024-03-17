@@ -56,7 +56,8 @@
           document.getElementById("demo").innerHTML = "Login Process";
 
           var xmlhttp = new XMLHttpRequest();
-          var theUrl = "https://script.google.com/macros/s/AKfycbyUT48nWN3wipCZfc28x1KDa9KYImeSXqSlv3frxZbE-gQCRkfT/exec?cgsACC="+cgsACC+"&uId="+uId+"&disName="+disName+"&picUrl="+picUrl;
+          var theUrl = "https://script.google.com/macros/s/AKfycbwI9yhUBE9ULwkmrOWBxpLG097kowK3PDOzpugV0VO0a3Pm82r9gVNGRsY_N-8n3ax3/exec?cgsACC="+cgsACC+"&uId="+uId+"&disName="+disName+"&picUrl="+picUrl;
+          
           xmlhttp.open('GET', theUrl);
           xmlhttp.send();
           xmlhttp.onreadystatechange = function() {
