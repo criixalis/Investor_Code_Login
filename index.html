@@ -39,10 +39,16 @@
       liff
           .init({
               liffId: myLiffId
-          }
-        );
+          })
+          .then(() => {
+          })
+          .catch(err) => {
+          console.log(err.code,err.message);
+      });
       }
 
+  liff.init({ liffId: myLiffId }, successCallback, errorCallback);
+    
   var x = document.getElementById("demo");
 
   function login() {
