@@ -43,33 +43,36 @@
         var x = document.getElementById("demo");
 
         function login() {
-            var cgsACC = document.getElementById("cgsACC").value;
-            liff.initPlugins(['profile'])
-                .then(() => liff.getProfile())
-                .then((profile) => {
-                    var uId = profile.userId;
-                    var disName = profile.displayName;
-                    var picUrl = profile.pictureUrl;
-                    var xos = liff.getOS();
-
-                    x.innerHTML = "Login Process";
-
-                    var xmlhttp = new XMLHttpRequest();
-                    var theUrl = "https://script.google.com/macros/s/AKfycbyUT48nWN3wipCZfc28x1KDa9KYImeSXqSlv3frxZbE-gQCRkfT/exec?cgsACC=" + cgsACC + "&uId=" + uId + "&disName=" + disName + "&picUrl=" + picUrl;
-                    xmlhttp.open('GET', theUrl);
-                    xmlhttp.send();
-                    xmlhttp.onreadystatechange = function() {
-                        if (this.readyState == 4 && this.status == 200) {
-                            var jsonResponse = JSON.parse(this.responseText);
-                            alert(jsonResponse.desc);
-                            liff.closeWindow();
+          var cgsACC = document.getElementById("cgsACC").value;
+               liff.getProfile().then(function(profile) {
+                 
+                      var uId = profile.userId;
+                      var disName = profile.displayName;
+                      var picUrl = profile.pictureUrl;
+                      var xos = liff.getOS();
+                 
+                        x.innerHTML = "Login Process";
+                 
+                      var xmlhttp = new XMLHttpRequest();
+                      var theUrl = "https://script.google.com/macros/s/AKfycbzcuSjciMktV1bP-Zfcb_a0W9YKoL9bxUJQ4WrNvDQCPZ6bXwPAig6dUDNqaI46N_Mj/exec"+cgsACC+"&uId="+uId+"&disName="+disName+"&picUrl="+picUrl;
+                          xmlhttp.open('GET', theUrl);
+                          xmlhttp.send();
+                          xmlhttp.onreadystatechange = function() {
+                            
+                          if (this.readyState == 4 && this.status == 200) {
+                              var jsonResponse = JSON.parse(this.responseText);
+                            
+                          }
+                            
+                          alert(jsonResponse.desc);
+                          liff.closeWindow()
+                            
+                              }
+                            }
+                          );  
                         }
-                    };
-                })
-                .catch((err) => {
-                    console.error('LIFF profile error', err);
-                });
-        }
+
+        
     </script>
 
     <!-- Optional JavaScript -->
