@@ -39,8 +39,11 @@
         .then(() => console.log("LIFF initialized"))
         .catch((err) => console.error("LIFF initialization failed", err));
     }
+    
     function login() {
       var cgsACC = document.getElementById("cgsACC").value;
+      if (liff.isloggedin()){
+        
       liff.getProfile()
         .then(function(profile) {
           var uId = profile.userId;
@@ -65,6 +68,7 @@
           console.error("Error getting profile:", error);
           alert("Login failed. Please try again.");
         });
+      }
     }
   </script>
 </body>
