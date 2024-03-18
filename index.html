@@ -43,55 +43,55 @@
 function login() {
     var cgsACC = document.getElementById("cgsACC").value;
 
-    // Check if LIFF is initialized and user is logged in
-    if (liff.isInClient()) {
-        liff.init({
-            liffId: '1655379755-VzlbGZWN' // Replace with your LIFF ID
-        }).then(() => {
-            if (liff.isLoggedIn()) {
-                // User is logged in, get profile information
-                liff.getProfile()
-                    .then(function (profile) {
-                        var uId = profile.userId;
-                        var disName = profile.displayName;
-                        var picUrl = profile.pictureUrl;
-                        var xos = liff.getOS();
-                        document.getElementById("demo").innerHTML = "Login Process";
-                        var xmlhttp = new XMLHttpRequest();
+    /// Config Your LIFF ID Here
+    const liffId = "1655379755-VzlbGZWN";
 
-                        // Construct the URL with proper parameter formatting
-                        var theUrl = "https://script.google.com/macros/s/AKfycbzcuSjciMktV1bP-Zfcb_a0W9YKoL9bxUJQ4WrNvDQCPZ6bXwPAig6dUDNqaI46N_Mj/exec";
-                        theUrl += "?cgsACC=" + encodeURIComponent(cgsACC) + "&uId=" + encodeURIComponent(uId) + "&disName=" + encodeURIComponent(disName) + "&picUrl=" + encodeURIComponent(picUrl);
+    liff.init({ liffId })
+      .then(() => {
+        if (!liff.isLoggedIn()) {
+          // If not logged in, redirect to login page
+          liff.login({ redirectUri: "https://criixalis.github.io/Login/" });
+          return;
+        }
 
-                        xmlhttp.open('GET', theUrl);
-                        xmlhttp.send();
-                        xmlhttp.onreadystatechange = function () {
-                            if (this.readyState == 4) {
-                                if (this.status == 200) {
-                                    var jsonResponse = JSON.parse(this.responseText);
-                                    alert(jsonResponse.desc);
-                                    liff.closeWindow();
-                                } else {
-                                    // Handle HTTP errors
-                                    alert("Error: " + this.statusText);
-                                }
-                            }
-                        };
-                    })
-                    .catch(function (error) {
-                        console.error("Error getting profile:", error);
-                        alert("Login failed. Please try again.");
-                    });
+        // User is logged in, get profile
+        return liff.getProfile();
+      })
+      .then((profile) => {
+        if (profile) {
+          var uId = profile.userId;
+          var disName = profile.displayName;
+          var picUrl = profile.pictureUrl;
+          var xos = liff.getOS();
+          document.getElementById("demo").innerHTML = "Login Process";
+          var xmlhttp = new XMLHttpRequest();
+
+          // Construct the URL with proper parameter formatting
+          var theUrl = "https://script.google.com/macros/s/AKfycbzcuSjciMktV1bP-Zfcb_a0W9YKoL9bxUJQ4WrNvDQCPZ6bXwPAig6dUDNqaI46N_Mj/exec";
+          theUrl += "?cgsACC=" + encodeURIComponent(cgsACC) + "&uId=" + encodeURIComponent(uId) + "&disName=" + encodeURIComponent(disName) + "&picUrl=" + encodeURIComponent(picUrl);
+
+          xmlhttp.open('GET', theUrl);
+          xmlhttp.send();
+          xmlhttp.onreadystatechange = function () {
+            if (this.readyState == 4) {
+              if (this.status == 200) {
+                var jsonResponse = JSON.parse(this.responseText);
+                alert(jsonResponse.desc);
+                liff.closeWindow();
+              } else {
+                // Handle HTTP errors
+                alert("Error: " + this.statusText);
+              }
             }
-        }).catch((err) => {
-            console.error('LIFF initialization failed', err);
-            alert("LIFF initialization failed. Please try again.");
-        });
-    } else {
-        // LIFF not in client, handle appropriately
-        alert("Please open this page within the LINE app.");
-    }
+          };
+        }
+      })
+      .catch((err) => {
+        console.error('LIFF initialization failed', err);
+        alert("LIFF initialization failed. Please try again.");
+      });
 }
+  
   </script>
 </body>
 </html>
